@@ -22,7 +22,7 @@ if (Test-Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU) {
     }
 
 
-    if ($managedByWSUS) {
+    if ($managedByWSUS -eq 1) {
         #Temporarily Disable it talking to WSUS
         Write-Output "Temporarily Bypassing WSUS..."
         Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU -Name UseWUServer -Value 0
